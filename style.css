@@ -81,7 +81,7 @@ section {
     display: flex;
     align-items: center;
     padding: 0 9%;
-    background: url('images/home.png') no-repeat;
+    background: url('images/ezgif-7-6fc019aa6e.gif');
     background-size: cover;
     background-position: center;
 }
@@ -237,20 +237,6 @@ section {
     width: 100%;
 }
 
-.home-imgHover {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 45%;
-    height: 100%;
-    background: transparent;
-    transition: 3s;
-}
-
-.home-imgHover:hover {
-    background: var(--bg-color);
-    opacity: .8;
-}
 
 .about {
     display: flex;
@@ -507,22 +493,22 @@ span {
     width: 80%;
 }
 
-.Portfolio {
+.Projects {
     background: var(--bg-color);
 }
 
-.Portfolio h2 {
+.Projects h2 {
     margin-bottom: 4rem;
 }
 
-.Portfolio-container {
+.Projects-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     gap: 2.5rem;
 }
 
-.Portfolio-container .Portfolio-box {
+.Projects-container .Projects-box {
     position: relative;
     border-radius: 2rem;
     box-shadow: 0 0 1rem var(--bg-color);
@@ -530,16 +516,16 @@ span {
     display: flex;
 }
 
-.Portfolio-box img {
+.Projects-box img {
     width: 100%;
     transition: .5s ease;
 }
 
-.Portfolio-box:hover img {
+.Projects-box:hover img {
     transform: scale(1.1);
 }
 
-.Portfolio-box .Portfolio-layer {
+.Projects-box .Projects-layer {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -556,20 +542,20 @@ span {
     transition: .5s ease;
 }
 
-.Portfolio-box:hover .Portfolio-layer {
+.Projects-box:hover .Projects-layer {
     transform: translateY(0);
 }
 
-.Portfolio-layer h4 {
+.Projects-layer h4 {
     font-size: 3rem;
 }
 
-.Portfolio-layer p {
+.Projects-layer p {
     font-size: 1.6rem;
     margin: .3rem 0 1rem;
 }
 
-.Portfolio-layer a {
+.Projects-layer a {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -579,11 +565,10 @@ span {
     border-radius: 50%;
 }
 
-.Portfolio-layer a i {
+.Projects-layer a i {
     font-size: 2rem;
     color: var(--second-bg-color);
 }
-
 
 .footer {
     display: flex;
@@ -649,7 +634,7 @@ span {
         padding: 10rem 4% 2rem; 
     }
 
-    .Portfolio {
+    .Projects {
         padding-bottom: 7rem;
     }
 
@@ -732,7 +717,7 @@ span {
     opacity: .6;
 }
 
-.Portfolio-container {
+.Projects-container {
     grid-template-columns: repeat(2, 1fr);
 }
 }
@@ -755,7 +740,7 @@ span {
         height: 38px;
     }
 
-    .Portfolio-container {
+    .Projects-container {
         grid-template-columns: 1fr;
     }
 }
@@ -842,4 +827,5 @@ span {
         transform: translate(-50%, -50%) rotate(360deg);
     }
 }
+
 
