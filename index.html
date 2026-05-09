@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moamena Samir — Data Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;text-decoration:none;border:none;outline:none;}
+:root{
+  --cream:#faf8f4;
+  --cream2:#f3f0ea;
+  --ink:#1a1714;
+  --ink2:#3d3830;
+  --ink3:#7a7167;
+  --ink4:#b0a89d;
+  --gold:#b8923a;
+  --gold2:#d4a84b;
+  --gold-light:#f5edd8;
+  --border:#e4dfd6;
+  --border2:#cfc8bd;
+  --white:#ffffff;
+}
+html{font-size:62.5%;overflow-x:hidden;scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:'Outfit',sans-serif;font-size:1.6rem;line-height:1.7;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--cream);}
+::-webkit-scrollbar-thumb{background:var(--border2);}
+
+header{
+  position:fixed;top:0;left:0;width:100%;z-index:999;
+  padding:2rem 6%;
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(250,248,244,0.92);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid transparent;
+  transition:border-color .4s;
+}
+header.scrolled{border-color:var(--border);}
+.logo-text{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:500;letter-spacing:.04em;color:var(--ink);}
+.logo-text em{font-style:italic;color:var(--gold);}
+nav{display:flex;gap:3.5rem;align-items:center;}
+nav a{font-size:1.35rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);transition:color .2s;}
+nav a:hover{color:var(--ink);}
+.nav-hire{padding:.75rem 2.2rem;border:1px solid var(--ink);border-radius:2px;font-size:1.35rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);transition:background .2s,color .2s;}
+.nav-hire:hover{background:var(--ink);color:var(--cream);}
+#menu-icon{display:none;font-size:2.8rem;color:var(--ink);cursor:pointer;}
+
+#home{
+  min-height:100vh;
+  display:grid;grid-template-columns:1fr 1fr;
+  padding:0 6%;padding-top:8rem;
+  gap:4rem;align-items:center;
+  background:var(--cream);position:relative;
+}
+#home::after{content:'';position:absolute;top:0;right:0;width:50%;height:100%;background:var(--cream2);z-index:0;}
+.hero-left{position:relative;z-index:1;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:1rem;font-size:1.25rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:2.5rem;}
+.hero-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
+.hero-left h1{font-family:'Cormorant Garamond',serif;font-size:clamp(5rem,7vw,8.5rem);font-weight:300;line-height:1.05;letter-spacing:-.01em;color:var(--ink);margin-bottom:2rem;}
+.hero-left h1 em{font-style:italic;font-weight:300;}
+.hero-left h1 strong{font-weight:600;display:block;}
+.hero-subtitle{font-size:1.65rem;color:var(--ink3);font-weight:400;max-width:44rem;line-height:1.75;margin-bottom:4rem;border-left:2px solid var(--gold);padding-left:1.8rem;}
+.hero-actions{display:flex;gap:1.5rem;flex-wrap:wrap;}
+.btn-dark{display:inline-flex;align-items:center;gap:.8rem;padding:1.35rem 3rem;background:var(--ink);color:var(--cream);font-size:1.4rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;border-radius:2px;transition:background .2s;}
+.btn-dark:hover{background:var(--ink2);}
+.btn-ghost{display:inline-flex;align-items:center;gap:.8rem;padding:1.35rem 3rem;background:transparent;color:var(--ink);border:1px solid var(--border2);font-size:1.4rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;border-radius:2px;transition:border-color .2s,color .2s;}
+.btn-ghost:hover{border-color:var(--ink);color:var(--ink);}
+.hero-right{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;padding:4rem 0 4rem 4rem;}
+.hero-stats-title{font-size:1.2rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);margin-bottom:3rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
+.hero-stat .num{font-family:'Cormorant Garamond',serif;font-size:5.5rem;font-weight:300;color:var(--gold);line-height:1;letter-spacing:-.02em;display:block;}
+.hero-stat .label{font-size:1.3rem;color:var(--ink3);margin-top:.4rem;line-height:1.4;}
+.hero-socials{display:flex;gap:1.2rem;margin-top:4rem;padding-top:3rem;border-top:1px solid var(--border);}
+.hero-socials a{width:42px;height:42px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border2);color:var(--ink3);font-size:1.9rem;border-radius:2px;transition:border-color .2s,color .2s;}
+.hero-socials a:hover{border-color:var(--gold);color:var(--gold);}
+
+section{padding:9rem 6%;}
+.section-tag{display:inline-flex;align-items:center;gap:1rem;font-size:1.2rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;}
+.section-tag::before{content:'';display:block;width:20px;height:1px;background:var(--gold);}
+.section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,5vw,6rem);font-weight:300;line-height:1.1;color:var(--ink);}
+.section-heading em{font-style:italic;}
+
+#impact{background:var(--ink);padding:6rem 6%;display:grid;grid-template-columns:repeat(6,1fr);gap:0;}
+.impact-item{padding:2.5rem;border-right:1px solid rgba(255,255,255,.08);text-align:center;}
+.impact-item:last-child{border-right:none;}
+.impact-item .n{font-family:'Cormorant Garamond',serif;font-size:4.5rem;font-weight:300;color:var(--gold2);line-height:1;display:block;}
+.impact-item .l{font-size:1.25rem;color:rgba(255,255,255,.45);margin-top:.6rem;line-height:1.4;}
+
+#experience{background:var(--white);}
+.exp-layout{display:grid;grid-template-columns:28rem 1fr;gap:6rem;align-items:start;}
+.exp-sidebar p{font-size:1.55rem;color:var(--ink3);line-height:1.8;margin-top:2rem;}
+.exp-entry{padding:3rem 0;border-bottom:1px solid var(--border);}
+.exp-entry:first-child{padding-top:0;}
+.exp-meta-row{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:.8rem;margin-bottom:.8rem;}
+.exp-company{font-size:1.3rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);}
+.exp-period{font-size:1.3rem;color:var(--ink4);font-family:'DM Mono',monospace;}
+.exp-role{font-size:2.2rem;font-weight:500;color:var(--ink);line-height:1.25;margin-bottom:.4rem;}
+.exp-loc{font-size:1.35rem;color:var(--ink3);margin-bottom:1.2rem;}
+.exp-points{list-style:none;display:flex;flex-direction:column;gap:.7rem;}
+.exp-points li{font-size:1.5rem;color:var(--ink3);padding-left:2rem;position:relative;line-height:1.6;}
+.exp-points li::before{content:'—';position:absolute;left:0;color:var(--gold);font-size:1.1rem;}
+
+#skills{background:var(--cream2);}
+.skills-intro{display:grid;grid-template-columns:28rem 1fr;gap:6rem;}
+.skills-intro-text p{font-size:1.55rem;color:var(--ink3);line-height:1.8;margin-top:2rem;}
+.skills-groups{display:flex;flex-direction:column;gap:3rem;}
+.skill-group-label{font-size:1.2rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink4);margin-bottom:1.2rem;padding-bottom:1rem;border-bottom:1px solid var(--border);}
+.skill-pills{display:flex;flex-wrap:wrap;gap:.8rem;}
+.pill{padding:.55rem 1.4rem;border-radius:30px;font-size:1.35rem;font-weight:500;}
+.pill-ink{background:var(--ink);color:var(--cream);}
+.pill-gold{background:var(--gold-light);color:var(--gold);border:1px solid rgba(184,146,58,.2);}
+.pill-border{background:transparent;color:var(--ink2);border:1px solid var(--border2);}
+
+#projects{background:var(--white);}
+.projects-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:5rem;flex-wrap:wrap;gap:2rem;}
+.projects-header a{font-size:1.4rem;font-weight:500;color:var(--gold);border-bottom:1px solid currentColor;padding-bottom:2px;}
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;}
+.proj-card{background:var(--cream);border:1px solid var(--border);overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s,border-color .3s;}
+.proj-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(26,23,20,.08);border-color:var(--border2);}
+.proj-img{height:16rem;overflow:hidden;background:var(--cream2);}
+.proj-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;display:block;}
+.proj-card:hover .proj-img img{transform:scale(1.06);}
+.proj-no-img{width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
+.proj-no-img i{font-size:4rem;color:var(--border2);}
+.proj-body{padding:2.2rem;flex:1;display:flex;flex-direction:column;}
+.proj-tag{font-size:1.15rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;}
+.proj-title{font-size:1.8rem;font-weight:600;color:var(--ink);line-height:1.3;margin-bottom:.8rem;}
+.proj-desc{font-size:1.4rem;color:var(--ink3);line-height:1.6;flex:1;}
+.proj-link{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.8rem;font-size:1.35rem;font-weight:600;color:var(--ink);border-bottom:1px solid var(--border);padding-bottom:2px;width:fit-content;transition:color .2s,border-color .2s;}
+.proj-link:hover{color:var(--gold);border-color:var(--gold);}
+
+#education{background:var(--cream);}
+.edu-layout{display:grid;grid-template-columns:1fr 1fr;gap:6rem;}
+.edu-col-label{font-size:1.2rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink4);margin-bottom:3rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
+.edu-entry{margin-bottom:2.5rem;}
+.edu-entry .yr{font-family:'DM Mono',monospace;font-size:1.25rem;color:var(--gold);margin-bottom:.5rem;letter-spacing:.06em;}
+.edu-entry h4{font-size:1.8rem;font-weight:600;color:var(--ink);margin-bottom:.4rem;}
+.edu-entry p{font-size:1.45rem;color:var(--ink3);line-height:1.6;}
+.cert-cards{display:flex;flex-direction:column;gap:1.5rem;}
+.cert-card{display:flex;align-items:center;gap:1.6rem;padding:1.8rem;background:var(--white);border:1px solid var(--border);}
+.cert-icon-wrap{width:46px;height:46px;flex-shrink:0;background:var(--gold-light);display:flex;align-items:center;justify-content:center;font-size:2.2rem;color:var(--gold);}
+.cert-text strong{display:block;font-size:1.6rem;font-weight:600;color:var(--ink);margin-bottom:.2rem;}
+.cert-text span{font-size:1.35rem;color:var(--ink3);}
+
+#contact{background:var(--ink);padding:9rem 6%;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;}
+.contact-left .section-tag{color:var(--gold2);}
+.contact-left .section-tag::before{background:var(--gold2);}
+.contact-left .section-heading{color:var(--cream);}
+.contact-left p{font-size:1.6rem;color:rgba(250,248,244,.5);line-height:1.8;margin-top:2rem;}
+.contact-right{display:flex;flex-direction:column;gap:1.5rem;}
+.contact-link{display:flex;align-items:center;gap:1.4rem;padding:1.8rem 2.2rem;border:1px solid rgba(255,255,255,.1);color:rgba(250,248,244,.7);font-size:1.5rem;transition:border-color .2s,color .2s,background .2s;}
+.contact-link i{font-size:2rem;color:var(--gold2);}
+.contact-link:hover{border-color:var(--gold2);color:var(--cream);background:rgba(212,168,75,.06);}
+footer{background:var(--ink);padding:2.5rem 6%;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+footer p,footer a{font-size:1.35rem;color:rgba(250,248,244,.3);}
+footer a{transition:color .2s;}
+footer a:hover{color:var(--gold2);}
+
+@media(max-width:1100px){
+  #home{grid-template-columns:1fr;}
+  #home::after{display:none;}
+  .hero-right{padding:3rem 0 0;}
+  .exp-layout,.skills-intro{grid-template-columns:1fr;}
+  #contact{grid-template-columns:1fr;}
+  .projects-grid{grid-template-columns:repeat(2,1fr);}
+  #impact{grid-template-columns:repeat(3,1fr);}
+  .impact-item:nth-child(3){border-right:none;}
+}
+@media(max-width:768px){
+  nav{display:none;}
+  nav.open{display:flex;flex-direction:column;gap:1.5rem;position:absolute;top:100%;left:0;width:100%;background:var(--cream);padding:2.5rem 6%;border-bottom:1px solid var(--border);}
+  #menu-icon{display:block;}
+  section{padding:6rem 5%;}
+  header{padding:1.8rem 5%;}
+  .edu-layout{grid-template-columns:1fr;}
+  .projects-grid{grid-template-columns:1fr;}
+  #impact{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:480px){
+  .hero-actions{flex-direction:column;}
+  .hero-stats{grid-template-columns:1fr 1fr;}
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.hero-eyebrow{animation:fadeUp .6s ease both;}
+.hero-left h1{animation:fadeUp .7s .1s ease both;}
+.hero-subtitle{animation:fadeUp .7s .2s ease both;}
+.hero-actions{animation:fadeUp .7s .3s ease both;}
+.hero-right{animation:fadeUp .8s .2s ease both;}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="logo-text">Moamena <em>Samir</em></div>
+  <div id="menu-icon" class="bx bx-menu"></div>
+  <nav id="navbar">
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="mailto:mo2mena.samir@gmail.com" class="nav-hire">Hire Me</a>
+  </nav>
+</header>
+
+<section id="home">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Data Analyst &amp; BI Specialist</div>
+    <h1>Turning<br><em>data</em> into<br><strong>decisions.</strong></h1>
+    <p class="hero-subtitle">2+ years building Power BI systems, SQL pipelines, and KPI frameworks that drive measurable impact across Finance, HR, and Commercial operations.</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-dark"><i class='bx bx-bar-chart-alt-2'></i> View Work</a>
+      <a href="https://drive.google.com/file/d/1NIc2Omp8mxi_9Cw9gJb8gLb9crtpB3oP/view?usp=sharing" target="_blank" class="btn-ghost"><i class='bx bx-download'></i> Download CV</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stats-title">Career Impact at a Glance</div>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="num">40%</span><div class="label">Reduction in data processing errors</div></div>
+      <div class="hero-stat"><span class="num">30h</span><div class="label">Monthly hours saved via automation</div></div>
+      <div class="hero-stat"><span class="num">60%</span><div class="label">Increase in dashboard adoption</div></div>
+      <div class="hero-stat"><span class="num">50+</span><div class="label">Stakeholders served organization-wide</div></div>
+    </div>
+    <div class="hero-socials">
+      <a href="mailto:mo2mena.samir@gmail.com" title="Email"><i class='bx bxl-gmail'></i></a>
+      <a href="https://github.com/MoamenaSamir" target="_blank" title="GitHub"><i class='bx bxl-github'></i></a>
+      <a href="https://www.linkedin.com/in/moamena-samir-12b2a61b3/" target="_blank" title="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+      <a href="tel:+201020567214" title="Phone"><i class='bx bx-phone'></i></a>
+    </div>
+  </div>
+</section>
+
+<div id="impact">
+  <div class="impact-item"><span class="n">10+</span><div class="l">Power BI dashboards delivered</div></div>
+  <div class="impact-item"><span class="n">25%</span><div class="l">Improvement in data integrity</div></div>
+  <div class="impact-item"><span class="n">15%</span><div class="l">Marketing ROI boost</div></div>
+  <div class="impact-item"><span class="n">35%</span><div class="l">Faster reporting turnaround</div></div>
+  <div class="impact-item"><span class="n">20+</span><div class="l">Students mentored in BI tools</div></div>
+  <div class="impact-item"><span class="n">2</span><div class="l">Microsoft &amp; Google certifications</div></div>
+</div>
+
+<section id="experience">
+  <div class="exp-layout">
+    <div class="exp-sidebar">
+      <div class="section-tag">Career</div>
+      <div class="section-heading">Work<br><em>Experience</em></div>
+      <p>From real estate to fintech to group analytics — a track record of turning raw data into strategic clarity across industries and continents.</p>
+    </div>
+    <div class="exp-list">
+      <div class="exp-entry">
+        <div class="exp-meta-row"><span class="exp-company">ACME Group</span><span class="exp-period">Apr 2025 – Present</span></div>
+        <div class="exp-role">Data Analyst</div>
+        <div class="exp-loc">Dubai, UAE</div>
+        <ul class="exp-points">
+          <li>Engineered 10+ Power BI dashboards across Finance, Commercial, and HR — cutting reporting turnaround by 35%</li>
+          <li>Architected a unified coding and costing system integrating 5+ data sources for live budget tracking</li>
+          <li>Automated KPI report distribution for 50+ executives, eliminating ad hoc reporting requests</li>
+          <li>Drove 60% increase in dashboard adoption through targeted training and redesigned visualizations</li>
+        </ul>
+      </div>
+      <div class="exp-entry">
+        <div class="exp-meta-row"><span class="exp-company">Brokers Hub</span><span class="exp-period">Apr 2024 – Dec 2025</span></div>
+        <div class="exp-role">Data Analyst <span style="font-weight:300;font-size:1.7rem;">· Part-Time</span></div>
+        <div class="exp-loc">El-Sheikh Zayed, Egypt</div>
+        <ul class="exp-points">
+          <li>Cleaned and transformed 10,000+ CRM records using SQL and Python (Pandas, NumPy)</li>
+          <li>Built Looker Studio dashboards tracking CAC and CPL — contributing to a 15% marketing ROI uplift</li>
+          <li>Automated workflows via Google Apps Script, saving 35% of manual reporting effort</li>
+        </ul>
+      </div>
+      <div class="exp-entry">
+        <div class="exp-meta-row"><span class="exp-company">Road Mentors</span><span class="exp-period">Jan 2024 – Jan 2025</span></div>
+        <div class="exp-role">Data Analyst &amp; Instructor</div>
+        <div class="exp-loc">Remote</div>
+        <ul class="exp-points">
+          <li>Designed analytics frameworks for SMBs, accelerating reporting cycles by 20%</li>
+          <li>Mentored 20+ students in SQL, Power BI, and DAX — improving project performance by 25%</li>
+        </ul>
+      </div>
+      <div class="exp-entry">
+        <div class="exp-meta-row"><span class="exp-company">MSquared</span><span class="exp-period">Aug 2023 – Feb 2024</span></div>
+        <div class="exp-role">Data Analyst Intern</div>
+        <div class="exp-loc">Mohandessin, Egypt</div>
+        <ul class="exp-points">
+          <li>Processed 100,000+ real estate records to identify market trends and investment signals</li>
+          <li>Deployed Power BI dashboards from SAP ERP data enabling 20% faster quarterly forecasting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="skills-intro">
+    <div class="skills-intro-text">
+      <div class="section-tag">Expertise</div>
+      <div class="section-heading">Technical<br><em>Skills</em></div>
+      <p>From pipeline architecture to executive storytelling — fluent across the full data value chain.</p>
+    </div>
+    <div class="skills-groups">
+      <div class="skill-group">
+        <div class="skill-group-label">BI &amp; Visualization</div>
+        <div class="skill-pills">
+          <span class="pill pill-ink">Power BI</span><span class="pill pill-ink">DAX</span><span class="pill pill-ink">Power Query</span><span class="pill pill-ink">Power Automate</span><span class="pill pill-ink">Tableau</span><span class="pill pill-ink">Looker Studio</span><span class="pill pill-ink">Excel Advanced</span><span class="pill pill-ink">VBA</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Programming &amp; Data</div>
+        <div class="skill-pills">
+          <span class="pill pill-gold">SQL Server</span><span class="pill pill-gold">Python</span><span class="pill pill-gold">Pandas</span><span class="pill pill-gold">NumPy</span><span class="pill pill-gold">Google Apps Script</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">ETL, Platforms &amp; Tools</div>
+        <div class="skill-pills">
+          <span class="pill pill-border">ETL Pipeline Design</span><span class="pill pill-border">Data Modeling</span><span class="pill pill-border">SAP ERP</span><span class="pill pill-border">Odoo</span><span class="pill pill-border">Azure Data Services</span><span class="pill pill-border">Git</span><span class="pill pill-border">Forecasting</span><span class="pill pill-border">Zoho Books</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="projects-header">
+    <div>
+      <div class="section-tag">Portfolio</div>
+      <div class="section-heading">Selected<br><em>Projects</em></div>
+    </div>
+    <a href="https://github.com/MoamenaSamir" target="_blank">View all on GitHub →</a>
+  </div>
+  <div class="projects-grid">
+    <div class="proj-card">
+      <div class="proj-img"><img src="images/Airplane Crashes.png" alt="Airplane Crashes" onerror="this.parentElement.innerHTML='<div class=\'proj-no-img\'><i class=\'bx bx-bar-chart-alt-2\'></i></div>'"></div>
+      <div class="proj-body">
+        <div class="proj-tag">Power BI</div>
+        <div class="proj-title">Airplane Crashes (1980–2023)</div>
+        <p class="proj-desc">Global incident analysis with trend detection, geospatial mapping, and risk factor breakdowns.</p>
+        <a href="https://app.powerbi.com/view?r=eyJrIjoiMTMyNmMzZDItYjIzMi00YzVjLWIyNTAtMjIzZDgyODRkMzkyIiwidCI6IjU4NzQyZWZiLTU0YTYtNGFhNS05YmYyLWU2MmI5Y2UwMGVlZiJ9" target="_blank" class="proj-link">View dashboard <i class='bx bx-right-arrow-alt'></i></a>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-img"><img src="images/Car Crash.png" alt="Car Crash" onerror="this.parentElement.innerHTML='<div class=\'proj-no-img\'><i class=\'bx bx-bar-chart-alt-2\'></i></div>'"></div>
+      <div class="proj-body">
+        <div class="proj-tag">Power BI</div>
+        <div class="proj-title">Chicago Car Crashes (2015–2023)</div>
+        <p class="proj-desc">Temporal and geographic traffic incident analysis surfacing high-risk zones and contributing factors.</p>
+        <a href="https://app.powerbi.com/groups/me/reports/aac5a972-5bf7-4962-9d0a-3812ebd9f219/ReportSectionda81ce80c0d133b09422?experience=power-bi" target="_blank" class="proj-link">View dashboard <i class='bx bx-right-arrow-alt'></i></a>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-img"><img src="images/HR.png" alt="HR Dashboard" onerror="this.parentElement.innerHTML='<div class=\'proj-no-img\'><i class=\'bx bx-group\'></i></div>'"></div>
+      <div class="proj-body">
+        <div class="proj-tag">Power BI</div>
+        <div class="proj-title">HR Analytics Dashboard</div>
+        <p class="proj-desc">Headcount, attrition, and performance metrics for executive workforce reporting and decisions.</p>
+        <a href="https://app.powerbi.com/groups/b8ea84ec-316a-4c94-a36a-9904f1daa432/reports/a9eea1a8-934e-453d-8416-8a2db43dfea5/ReportSection?experience=power-bi" target="_blank" class="proj-link">View dashboard <i class='bx bx-right-arrow-alt'></i></a>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-img"><img src="images/Sales.png" alt="Sales" onerror="this.parentElement.innerHTML='<div class=\'proj-no-img\'><i class=\'bx bx-trending-up\'></i></div>'"></div>
+      <div class="proj-body">
+        <div class="proj-tag">Power BI</div>
+        <div class="proj-title">Electronics Shop Analytics (2021–22)</div>
+        <p class="proj-desc">Sales KPI tracking, product performance analysis, and revenue trend visualization.</p>
+        <a href="https://app.powerbi.com/groups/b8ea84ec-316a-4c94-a36a-9904f1daa432/reports/cac3634a-7584-4855-9eca-a013e3efb55e/ReportSection?experience=power-bi" target="_blank" class="proj-link">View dashboard <i class='bx bx-right-arrow-alt'></i></a>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-img"><img src="images/Global product.png" alt="Global Product" onerror="this.parentElement.innerHTML='<div class=\'proj-no-img\'><i class=\'bx bx-globe\'></i></div>'"></div>
+      <div class="proj-body">
+        <div class="proj-tag">Tableau</div>
+        <div class="proj-title">Global Product Sales</div>
+        <p class="proj-desc">Multi-region product performance with geographic breakdowns and revenue attribution.</p>
+        <a href="https://public.tableau.com/app/profile/moamena.samir8558/viz/OrdersOfProducts/Dashboard1" target="_blank" class="proj-link">View dashboard <i class='bx bx-right-arrow-alt'></i></a>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-img"><img src="images/SQL.png" alt="SQL" onerror="this.parentElement.innerHTML='<div class=\'proj-no-img\'><i class=\'bx bx-data\'></i></div>'"></div>
+      <div class="proj-body">
+        <div class="proj-tag">SQL</div>
+        <div class="proj-title">Gaming Data Analysis</div>
+        <p class="proj-desc">Complex queries exploring player behavior, engagement patterns, and revenue metrics.</p>
+        <a href="https://github.com/MoamenaSamir/Gaming-Data/blob/main/SQLQuery1.sql" target="_blank" class="proj-link">View on GitHub <i class='bx bx-right-arrow-alt'></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="edu-layout">
+    <div>
+      <div class="section-tag">Background</div>
+      <div class="section-heading">Education &amp;<br><em>Credentials</em></div>
+      <div style="margin-top:3.5rem;">
+        <div class="edu-col-label">Academic</div>
+        <div class="edu-entry">
+          <div class="yr">2019 — 2022</div>
+          <h4>Bachelor of Business Administration</h4>
+          <p>Ain Shams University, Cairo · GPA: 85%</p>
+        </div>
+        <div class="edu-entry">
+          <div class="yr">2022 — 2024</div>
+          <h4>English Language Certificate B2</h4>
+          <p>British Council, Cairo</p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:8.5rem;">
+      <div class="edu-col-label">Certifications</div>
+      <div class="cert-cards">
+        <div class="cert-card">
+          <div class="cert-icon-wrap"><i class='bx bxl-microsoft'></i></div>
+          <div class="cert-text"><strong>Power BI Data Analyst Associate (PL-300)</strong><span>Microsoft Certified · 2024</span></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon-wrap"><i class='bx bxl-google'></i></div>
+          <div class="cert-text"><strong>Google Data Analytics Professional Certificate</strong><span>Google · 2024</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-left">
+    <div class="section-tag">Let's connect</div>
+    <div class="section-heading">Open to new<br><em>opportunities.</em></div>
+    <p>Currently based in Egypt, open to roles globally. I'd love to discuss how I can bring data clarity to your organization.</p>
+  </div>
+  <div class="contact-right">
+    <a href="mailto:mo2mena.samir@gmail.com" class="contact-link"><i class='bx bxl-gmail'></i> mo2mena.samir@gmail.com</a>
+    <a href="tel:+201020567214" class="contact-link"><i class='bx bx-phone'></i> +20 102 056 7214</a>
+    <a href="https://www.linkedin.com/in/moamena-samir-12b2a61b3/" target="_blank" class="contact-link"><i class='bx bxl-linkedin'></i> linkedin.com/in/moamena-samir</a>
+    <a href="https://github.com/MoamenaSamir" target="_blank" class="contact-link"><i class='bx bxl-github'></i> github.com/MoamenaSamir</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Moamena Samir Ismail · El-Sheikh Zayed, Giza, Egypt</p>
+  <a href="#home">Back to top ↑</a>
+</footer>
+
+<script>
+const header=document.getElementById('header');
+window.addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>60));
+const mi=document.getElementById('menu-icon'),nb=document.getElementById('navbar');
+mi.addEventListener('click',()=>{nb.classList.toggle('open');mi.classList.toggle('bx-x');});
+nb.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nb.classList.remove('open');mi.classList.remove('bx-x');}));
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';ro.unobserve(e.target);}});
+},{threshold:0.08});
+document.querySelectorAll('.exp-entry,.proj-card,.cert-card,.edu-entry,.impact-item,.skill-group').forEach(el=>{
+  el.style.cssText='opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease;';
+  ro.observe(el);
+});
+</script>
+</body>
+</html>
